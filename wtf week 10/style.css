@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.chat-widget {
+  width: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-header {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chevron {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 100px;
+}
+
+.hannah {
+  margin-right: 60px;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.profile-name {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 2px;
+  margin-right: 50px;
+}
+
+.last-active {
+  font-size: 12px;
+  color: #ccc;
+}
+
+.chat-content {
+  padding: 10px;
+  background-color: #fff;
+  height: 200px;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.sender-message {
+  background-color: #e6e6e6; /* Darker color for sender's message */
+  color: #000;
+  padding: 8px;
+  border-radius: 10px;
+  align-self: flex-start;
+  max-width: 70%;
+}
+
+.receiver-message {
+  background-color: #3498db; /* Blue background for receiver messages */
+  color: #fff;
+  padding: 8px;
+  border-radius: 10px;
+  align-self: flex-end;
+  max-width: 70%;
+}
+
+.message-entry {
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message-input {
+  flex-grow: 1;
+  border: none;
+  padding: 5px;
+  margin-right: 10px;
+  background-color: #fff; /* Same background color as the message area */
+}
+
+.action-icons {
+  display: flex;
+  align-items: center;
+}
+
+.action-icons i {
+  font-size: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}

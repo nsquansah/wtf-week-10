@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Widget</title>
+    <!-- Font Awesome CDN links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .chat-widget {
+            width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chevron {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .profile-container {
+            display: flex;
+            align-items: center;
+            text-align: left;
+        }
+
+        .profile-image {
+            width: 30px;
+            height: 3px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-name {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            margin-right: 100px;
+        }
+
+        .last-active {
+            font-size: 12px;
+            color: #ccc;
+        }
+
+        .chat-content {
+            padding: 10px;
+            background-color: #fff;
+            height: 200px;
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        .message-container {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+
+        .sender-message {
+            background-color: #e6e6e6; /* Darker color for sender's message */
+            color: #000;
+            padding: 8px;
+            border-radius: 10px;
+            align-self: flex-start;
+            max-width: 70%;
+        }
+
+        .receiver-message {
+            background-color: #3498db; /* Blue background for receiver messages */
+            color: #fff;
+            padding: 8px;
+            border-radius: 10px;
+            align-self: flex-end;
+            max-width: 70%;
+        }
+
+        .message-entry {
+            padding: 10px;
+            border-top: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .message-input {
+            flex-grow: 1;
+            border: none;
+            padding: 5px;
+            margin-right: 10px;
+            background-color: #fff; /* Same background color as the message area */
+        }
+
+        .action-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .action-icons i {
+            font-size: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="chat-widget">
+        <div class="card-header">
+            <div class="chevron">&#8249;</div>
+            <div class="profile-container">
+                <img src="profile_picture.jpg" alt="Profile" class="profile-image">
+                <div class="profile-info">
+                    <div class="profile-name">Hannah</div>
+                    <div class="last-active">Last active: 2 hours ago</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-content">
+            <div class="message-container">
+                <div class="sender-message">Hi there!</div>
+            </div>
+            <div class="message-container">
+                <div class="receiver-message">Hello! How can I help you?</div>
+            </div>
+            <div class="message-container">
+                <div class="sender-message">I need some information about...</div>
+            </div>
+            <!-- Add more messages as needed -->
+        </div>
+
+        <div class="message-entry">
+            <input type="text" class="message-input" placeholder="Type a reply...">
+            <div class="action-icons">
+                <i class="fa fa-bolt"></i> <!-- Changed GIF icon to a lightning bolt -->
+                <i class="far fa-smile"></i>
+                <i class="fa fa-paperclip"></i> <!-- Changed the last icon to a paperclip -->
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
