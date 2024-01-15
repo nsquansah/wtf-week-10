@@ -1,173 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Widget</title>
-    <!-- Font Awesome CDN links -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f8f8f8;
-            color: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Widget</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-        .chat-widget {
-            width: 300px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-        }
+    .chat-widget {
+      width: 300px;
+      margin: 20px;
+      background-color: #3498db;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      color: #fff;
+    }
 
-        .card-header {
-            background-color: #3498db;
-            color: #fff;
-            padding: 10px;
-            border-radius: 10px 10px 0 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
 
-        .chevron {
-            font-size: 20px;
-            cursor: pointer;
-        }
+    .header img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
 
-        .profile-container {
-            display: flex;
-            align-items: center;
-            text-align: left;
-        }
+    .online-dot {
+      width: 12px;
+      height: 12px;
+      background-color: #2ecc71;
+      border-radius: 50%;
+    }
 
-        .profile-image {
-            width: 30px;
-            height: 3px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
+    .info {
+      text-align: right;
+    }
 
-        .profile-info {
-            display: flex;
-            flex-direction: column;
-        }
+    .chat-box-container {
+      display: flex;
+      flex-direction: column;
+    }
 
-        .profile-name {
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            margin-right: 100px;
-        }
+    .chat-box {
+      padding: 10px;
+      border-bottom: 1px solid #fff;
+      position: relative;
+    }
 
-        .last-active {
-            font-size: 12px;
-            color: #ccc;
-        }
+    .chat-box:last-child {
+      border-bottom: none;
+    }
 
-        .chat-content {
-            padding: 10px;
-            background-color: #fff;
-            height: 200px;
-            overflow-y: auto;
-            flex-grow: 1;
-        }
+    .timestamp {
+      font-size: 0.8em;
+      color: #ddd;
+      position: absolute;
+      bottom: 0;
+      right: 5px;
+    }
 
-        .message-container {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 10px;
-        }
-
-        .sender-message {
-            background-color: #e6e6e6; /* Darker color for sender's message */
-            color: #000;
-            padding: 8px;
-            border-radius: 10px;
-            align-self: flex-start;
-            max-width: 70%;
-        }
-
-        .receiver-message {
-            background-color: #3498db; /* Blue background for receiver messages */
-            color: #fff;
-            padding: 8px;
-            border-radius: 10px;
-            align-self: flex-end;
-            max-width: 70%;
-        }
-
-        .message-entry {
-            padding: 10px;
-            border-top: 1px solid #ccc;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .message-input {
-            flex-grow: 1;
-            border: none;
-            padding: 5px;
-            margin-right: 10px;
-            background-color: #fff; /* Same background color as the message area */
-        }
-
-        .action-icons {
-            display: flex;
-            align-items: center;
-        }
-
-        .action-icons i {
-            font-size: 20px;
-            margin-right: 10px;
-            cursor: pointer;
-        }
-    </style>
+    .sender {
+      background-color: #4CAF50;
+      color: #fff;
+      align-self: flex-end;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="chat-widget">
-        <div class="card-header">
-            <div class="chevron">&#8249;</div>
-            <div class="profile-container">
-                <img src="profile_picture.jpg" alt="Profile" class="profile-image">
-                <div class="profile-info">
-                    <div class="profile-name">Hannah</div>
-                    <div class="last-active">Last active: 2 hours ago</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="chat-content">
-            <div class="message-container">
-                <div class="sender-message">Hi there!</div>
-            </div>
-            <div class="message-container">
-                <div class="receiver-message">Hello! How can I help you?</div>
-            </div>
-            <div class="message-container">
-                <div class="sender-message">I need some information about...</div>
-            </div>
-            <!-- Add more messages as needed -->
-        </div>
-
-        <div class="message-entry">
-            <input type="text" class="message-input" placeholder="Type a reply...">
-            <div class="action-icons">
-                <i class="fa fa-bolt"></i> <!-- Changed GIF icon to a lightning bolt -->
-                <i class="far fa-smile"></i>
-                <i class="fa fa-paperclip"></i> <!-- Changed the last icon to a paperclip -->
-            </div>
-        </div>
+  <div class="chat-widget">
+    <div class="header">
+      <div>
+        <img src="profile-picture.jpg" alt="Profile Picture">
+        <span>Hannah</span>
+      </div>
+      <div class="info">
+        <span>Active</span>
+        <div class="online-dot"></div>
+      </div>
     </div>
+
+    <div class="chat-box-container">
+      <div class="chat-box sender">Hello there!<span class="timestamp"></span></div>
+      <div class="chat-box sender">How are you doing?<span class="timestamp"></span></div>
+      <div class="chat-box receiver">I'm good, thanks!<span class="timestamp"></span></div>
+      <!-- Add more sender and receiver messages with timestamps as needed -->
+    </div>
+  </div>
+
+  <script>
+    // JavaScript to dynamically update timestamps (for demo purposes, you may need a more sophisticated method)
+    document.addEventListener("DOMContentLoaded", function() {
+      updateTimestamps();
+    });
+
+    function updateTimestamps() {
+      const timestamps = document.querySelectorAll(".timestamp");
+      const now = new Date();
+      timestamps.forEach(timestamp => {
+        timestamp.textContent = formatTimestamp(now);
+      });
+    }
+
+    function formatTimestamp(date) {
+      const hours = date.getHours().toString().padStart(2, "0");
+      const minutes = date.getMinutes().toString().padStart(2, "0");
+      return `${hours}:${minutes}`;
+    }
+  </script>
 
 </body>
 </html>
